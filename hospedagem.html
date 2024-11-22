@@ -33,6 +33,70 @@
       </nav>
     </header>
 
+    <main class="mainHospedagem">
+      <section class="hospedagemFotos">
+        <div class="pictureHotel">
+          <img src="images/hotel1.avif" alt="hotel1" />
+        </div>
+        <div class="picutreWrapper">
+          <img class="pictureFooter" src="images/hotel2.avif" alt="hotel2" />
+          <img class="pictureFooter" src="images/hotel3.avif" alt="hotel3" />
+          <img class="pictureFooter" src="images/hotel4.avif" alt="hotel4" />
+          <img class="pictureFooter" src="images/hotel5.avif" alt="hotel5" />
+        </div>
+      </section>
+
+      <form class="formsHospedagem" action="get">
+        <div class="formDiv1">
+          <div class="name">
+            <label for="name">Nome</label>
+            <input
+              placeholder="Digite seu nome e sobrenome"
+              type="text"
+              id="name"
+            />
+          </div>
+          <div class="name">
+            <label for="cpf">Cpf</label>
+            <input
+              placeholder="apenas números"
+              maxlength="11"
+              type="text"
+              id="cpf"
+            />
+          </div>
+        </div>
+        <div class="formDiv1">
+          <div class="name">
+            <label for="name">Endereço</label>
+            <input
+              placeholder="ex: Estado, Cidade, Bairro, Rua e Número"
+              type="text"
+              id="name"
+            />
+          </div>
+          <div class="name">
+            <label for="franquia">Franquia</label>
+            <select name="franquia" id="franquia">
+              <option value="Pernambuco">Pernambuco</option>
+              <option value="Pernambuco">Ceará</option>
+              <option value="Pernambuco">Paraíba</option>
+              <option value="Pernambuco">Rio Grande do Norte</option>
+            </select>
+          </div>
+          <div class="name">
+            <label for="qnt">Quantidade de quartos</label>
+            <select name="qnt" id="qnt">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+        </div>
+        <button class="hospedagem">Hospedar</button>
+      </form>
+    </main>
+
     <footer>
       <p class="fot_p">
         Desenvolvido por Arthur de Oliveira, Dhiego Fernando, Luiz, Maria

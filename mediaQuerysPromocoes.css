@@ -1,0 +1,42 @@
+@media screen and (min-width: 780px) {
+  /* header */
+  .head_page {
+    gap: 10em;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+
+  ul {
+    margin-right: 1em;
+    flex-direction: row;
+    gap: 1.5em;
+  }
+
+  .nav_list a {
+    padding: 0.5em 0.5em;
+    color: var(--primary-color);
+    width: fit-content;
+  }
+
+  .nav_list a:hover {
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: rgba(200, 200, 200, 0.2);
+  }
+
+  .head_page {
+    background-color: white;
+  }
+
+  .nav_list li {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+}
+
+@media screen and (min-width: 1200px) {
+}
