@@ -256,8 +256,9 @@ footer a:hover {
 
 .hospedagemFotos {
   padding: 1.6rem;
-  max-width: 100%;
+  /* max-width: 70%; */
   display: flex;
+  gap: 4px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -277,14 +278,16 @@ footer a:hover {
 }
 
 .picutreWrapper {
-  padding: 2rem 0.5rem;
-  max-width: 100%;
+  padding: 1rem 0.5rem;
+  max-width: unset;
+  max-height: unset;
   display: flex;
-  gap: 1.6rem;
+  gap: 1rem;
 }
 
 .pictureFooter {
-  max-width: 15rem;
+  width: 100%;
+  height: 10rem;
   border-radius: 0.5rem;
   object-fit: cover;
 }
@@ -295,6 +298,7 @@ footer a:hover {
 
 .mainHospedagem {
   display: flex;
+  padding: 1rem 1rem 5rem 1rem;
   flex-direction: column;
   width: 100%;
 }
@@ -376,4 +380,20 @@ option {
 
 .hospedagem:hover {
   background-color: var(--primary-hover);
+}
+
+div h2 {
+  font-size: 24px;
+}
+
+.headerHospedagem {
+  padding: 3rem 0;
+  display: flex;
+  width: 100%;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.hospedagemImg {
+  width: 5rem;
 }

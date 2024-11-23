@@ -35,11 +35,17 @@
   }
 
   .hospedagemFotos {
+    max-width: 100%;
     flex-direction: row-reverse;
   }
 
   .picutreWrapper {
     flex-direction: column;
+  }
+
+  .headerHospedagem {
+    padding: 2.5rem 4rem;
+    justify-content: flex-start;
   }
 }
 
