@@ -75,16 +75,15 @@ ul {
   width: 100vw;
 }
 
-.nav_list li {
-  text-align: center;
-  width: 100%;
-}
-
 .nav_list a:hover {
   color: white;
   background-color: rgba(200, 200, 200, 0.2);
 }
 
+.nav_list li {
+  text-align: center;
+  width: 100%;
+}
 /* main */
 
 .sec1 {

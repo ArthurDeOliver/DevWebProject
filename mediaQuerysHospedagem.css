@@ -56,12 +56,16 @@
     padding: 0.5em 0.5em;
     color: var(--primary-color);
     width: fit-content;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out,
+      box-shadow 200ms ease-in-out, border-radius 200ms ease-in-out;
   }
 
   .nav_list a:hover {
-    color: var(white);
+    color: white;
     border-radius: 20px;
-    box-shadow: 2px 2px 5px rgba(97, 38, 116, 0.5);
+    box-shadow: 4px 4px 10px rgba(97, 38, 116, 0.3);
     background-color: var(--primary-hover);
   }
 
