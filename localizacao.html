@@ -1,43 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Range Hotel</title>
 
-    <link rel="stylesheet" href="globalCss.css" />
-    <link rel="stylesheet" href="mediaQuerysLoalizacao.css" />
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Range Hotel</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <link rel="stylesheet" href="globalCss.css" />
+  <link rel="stylesheet" href="mediaQuerysLocalizacao.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 
-  <body>
-    <header class="head_page">
-      <div class="img_logo">
-        <img src="images/logo_mob.svg" alt="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body style="
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  ">
+  <header class="head_page">
+    <div class="img_logo">
+      <img src="images/logo_mob.svg" alt="" />
+    </div>
+
+    <nav class="nav_list">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="hospedagem.html">Hospedagem</a></li>
+        <li><a href="promocoes.html">Promoções</a></li>
+        <li><a href="localizacao.html">Localização</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="categories">
+    <img src="images/casa.png" id="img-casa" alt="Imagem de casa">
+    <a href="#">Próximo a você</a>
+    <a href="#">Praias</a>
+    <a href="#">Pontos Turísticos</a>
+    <a href="#">Reservas Naturais</a>
+    <a href="#">Centros Históricos</a>
+    <a href="#">Parques Temáticos</a>
+    <a href="#">Cachoeiras</a>
+    <input type="search" placeholder="🔍︎" />
+  </div>
+  <main>
+    <section class="hotel-lista">
+      <div class="hotel">
+        <img src="images/foto1.jpg" alt="Caruaru Resort">
+        <h3>Armação Resort - Porto de Galinhas</h3>
+        <p>Dois quartos, uma varanda e sala de estar</p>
+        <span>⭐⭐⭐⭐⭐ 4.9 </span>
       </div>
+      <div class="hotel">
+        <img src="images/foto2.jpeg" alt="Piscina do Hotel">
+        <h3>Hotel Tropical - Porto de Galinhas</h3>
+        <p>Com piscina e vista paradisíaca.</p>
+        <span>⭐⭐⭐⭐⭐ 4.8</span>
+      </div>
+      <div class="hotel">
+        <img src="images/foto3.jpeg" alt="Vista do quarto">
+        <h3>Pousada Amada Terra - Porto de Galinhas</h3>
+        <p>Quarto de frente para o mar.</p>
+        <span>⭐⭐⭐⭐⭐ 5.0</span>
+      </div>
+      <div class="hotel">
+        <img src="images/foto4.jpg" alt="Mesa com Café">
+        <h3>Pousada Sonar - Porto de Galinhas</h3>
+        <p>Dois quartos, varanda com vista de frente para o mar e café da manhã incluso.</p>
+        <span>⭐⭐⭐⭐⭐ 4.7</span>
+      </div>
+      <div class="hotel">
+        <img src="images/foto5.jpeg" alt="Mesa com Café">
+        <h3>Pousada Uba-Rio - Porto de Galinhas</h3>
+        <p>Café da manhã incluso</p>
+        <span>⭐⭐⭐⭐⭐ 4.8</span>
+      </div>
+      <div class="hotel">
+        <img src="images/foto6.jpg" alt="Mesa com Café">
+        <h3>Praieiras - Porto de Galinhas</h3>
+        <p>Um lugar para você se divertir e relaxar com a família! Dois quartos, garagem e sauna individual.</p>
+        <span>⭐⭐⭐⭐⭐ 4.9</span>
+      </div>
+      <div class="hotel">
+        <img src="images/foto7.jpg" alt="Mesa com Café">
+        <h3>Pousada Encanto do Mar - Porto de Galinhas</h3>
+        <p>Dois quartos, área de lazer com campo de futebol e parquinho.</p>
+        <span>⭐⭐⭐⭐⭐ 4.7</span>
+      </div>
+      <div class="hotel">
+        <img src="images/foto8.jpg" alt="Mesa com Café">
+        <h3>Hotel Solar - Porto de Galinhas</h3>
+        <p>O lugar ideal para quem quer conforto e descanso.</p>
+        <span>⭐⭐⭐⭐⭐ 5.0</span>
+      </div>
+      <div class="hotel">
+        <img src="images/foto9.jpg" alt="Mesa com Café">
+        <h3>Flat Sol e Mar - Porto de Galinhas</h3>
+        <p>Café da manhã incluso</p>
+        <span>⭐⭐⭐⭐⭐ 4.7</span>
+      </div>
+    </section>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14335.33006034268!2d-35.01011927885302!3d-8.499079853924917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa92264444c639%3A0x22d2d29248113c5e!2sPorto%20de%20Galinhas%20-%20N.%20S%C3%A3o%20do%20%C3%93%2C%20Ipojuca%20-%20State%20of%20Pernambuco!5e0!3m2!1sen!2sbr!4v1732649166527!5m2!1sen!2sbr"></iframe>
+    </div>
+  </main>
+  <footer>
+    <p class="fot_p">
+      Desenvolvido por Arthur de Oliveira, Dhiego Fernando, Luiz, Maria
+      Eduarda
+    </p>
+  </footer>
+</body>
 
-      <nav class="nav_list">
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="hospedagem.html">Hospedagem</a></li>
-          <li><a href="promocoes.html">Promoções</a></li>
-          <li><a href="localizacao.html">Localização</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <footer>
-      <p class="fot_p">
-        Desenvolvido por Arthur de Oliveira, Dhiego Fernando, Luiz, Maria
-        Eduarda
-      </p>
-    </footer>
-  </body>
 </html>
