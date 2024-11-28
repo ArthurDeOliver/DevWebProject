@@ -80,6 +80,10 @@ ul {
   background-color: rgba(200, 200, 200, 0.2);
 }
 
+.picutreWrapper {
+  overflow-y: scroll;
+}
+
 .nav_list li {
   text-align: center;
   width: 100%;
