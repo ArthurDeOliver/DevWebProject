@@ -80,7 +80,7 @@ main {
   display: flex;
   flex: 1;
   gap: 20px;
-  padding: 30px;
+  /* padding: 0; */
   margin: 10px;
   justify-content: space-between; /* Alinha os elementos lado a lado */
 }
@@ -169,6 +169,8 @@ iframe {
   }
   
 }
-@media screen and (max-width: 1200px) {
-
+@media screen and (min-width: 1200px) {
+  main{
+    padding: 30px;
+  }
 }
