@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="/app/static/css/home.css">
+    <title>Registro de Produção</title>
+    <style>
+        .form-step {
+            display: none; /* Esconde todas as etapas */
+        }
+        .active {
+            display: block; /* Exibe a etapa ativa */
+        }
+    </style>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="header">
+    <div class="logo">
+        <img src="/app/static/img/cesar.png" alt="Logo CESAR" class="logo-img">
+    </div>
+    <nav class="nav">
+        <a href="#" class="nav-link">Produções</a>
+        <a href="#" class="nav-link">Registrar produção</a>
+    </nav>
+    <div class="profile-summary">
+        <img src="user_image_url.jpg" alt="Foto de Perfil" class="profile-img">
+        <span class="profile-name"> {{ session.user['name'] }} </span>
+    </div>
+</header>
+
+    <form action="{{ url_for('main.process_submit_form') }}" method="POST" enctype="multipart/form-data" id="multiStepForm">
+        <!-- PASSO 1-->
+        <div class="form-step active" id="step1">
+            <h1>Instruções para o registro</h1>
+            <h3>Olá, {{ session.user['name'] }}!</h3>
+
+            <p>Somos a área de Conhecimento e precisamos da sua ajuda para mapear de forma contínua a nossa produção bibliográfica, técnica e artística.</p>
+            <p><strong>O QUE CONTA COMO PRODUÇÃO?</strong></p>
+
+            <p><strong>BIBLIOGRÁFICA ⤵️</strong></p>
+            <ul>
+                <li>ARTIGO EM JORNAL OU REVISTA (Artigos APROVADOS)</li>
+                <li>ARTIGO EM PERIÓDICO (Artigos APROVADOS)</li>
+                <li>LIVRO (Inclui CAPÍTULOS e ORGANIZAÇÃO)</li>
+                <li>TRABALHO EM ANAIS (Artigos APROVADOS em Eventos Científicos)</li>
+            </ul>
+
+            <p><strong>TÉCNICA ⤵️</strong></p>
+            <ul>
+                <li>APRESENTAÇÃO DE TRABALHO</li>
+                <li>CURSO DE CURTA DURAÇÃO</li>
+                <li>DESENVOLVIMENTO DE APLICATIVO</li>
+                <li>DESENVOLVIMENTO DE MATERIAL DIDÁTICO E INSTRUCIONAL</li>
+                <li>DESENVOLVIMENTO DE PRODUTO</li>
+                <li>DESENVOLVIMENTO DE TÉCNICA</li>
+                <li>EDITORIA</li>
+                <li>ORGANIZAÇÃO DE EVENTO</li>
+                <li>PATENTE</li>
+                <li>PROGRAMA DE RÁDIO, TV OU PODCAST</li>
+                <li>RELATÓRIO DE PESQUISA</li>
+                <li>SERVIÇOS TÉCNICOS</li>
+            </ul>
+
+            <p><strong>ARTÍSTICA ⤵️</strong></p>
+            <ul>
+                <li>ARTES VISUAIS</li>
+                <li>OUTRA PRODUÇÃO CULTURAL</li>
+            </ul>
+
+            <p>Como preencher?</p>
+            <p>Somos a área de Conhecimento e precisamos da sua ajuda para mapear de forma contínua a nossa produção bibliográfica, técnica e artística.</p>
+            <p>Este formulário serve para capturar as informações de uma única produção por vez. Sendo assim, se você tiver realizado mais de uma, precisará preencher o formulário mais de uma vez.</p>
+            <p>Nós lembraremos frequentemente a todos para preencherem este formulário. No entanto, você não precisa esperar... guarde este link e nos informe toda vez que realizar uma produção. Assim as informações não acumulam e o trabalho de todos fica mais fácil!</p>
+            <br><br>
+
+            <!--BOTAO DE REDIRECIONAMENTO PERFIL (APROVEITAR)-->
+            <a href="{{ url_for('main.perfil') }}">
+                <button type="button">Ir para Perfil</button>
+            </a><br><br>
+
+            <button type="button" onclick="nextStep(1)">Iniciar Registro</button>
+        </div>
+
+<!-------------------------------------------------------------------------------------------------------------------------------->
+
+        <!--PASSO 2 -->
+        <div class="form-step" id="step2">
+            <h2>Dados básicos da produção</h2>
+
+            <label for="nome_producao">Qual o nome da produção?</label><br>
+            <input type="text" id="nome_producao" name="nome_producao" placeholder="Informe um nome para a sua produção"><br><br>
+
+            <label for="descricao_producao">Descrição da Produção:</label><br>
+            <textarea id="descricao_producao" name="descricao_producao" placeholder="Informe detalhes da produção, tais como local de publicação, edital, etc"></textarea><br><br>
+
+            <label for="tipo_producao">Escolha o tipo de produção:</label><br>
+            <select id="tipo_producao" name="tipo_producao"></select><br><br>
+
+            <!-- UPLOAD DA PRODUÇÃO -->
+            <label for="arquivo_producao">
+                Arquivo:
+                <br>
+                <small>Por favor, anexe aqui o seu projeto ou produção</small>
+            </label><br>
+            <input type="file" id="arquivo_producao" name="arquivo_producao" accept=".pdf, .jpg, .jpeg, .png"><br><br>
+
+            <!-- COMPROVANTE -->
+            <label for="comprovante">
+                Comprovante de submissão de editais / aceite de publicação
+                <br>
+                <small>Caso a produção tenha comprovante de submissão de editais ou aceite de publicação, anexe aqui</small>
+            </label><br>
+            <input type="file" id="comprovante" name="comprovante" accept=".pdf, .jpg, .jpeg, .png"><br><br>
+
+            <label for="nome_veiculo">
+                Qual o nome do veículo, evento ou entidade científica internacional?
+                <br>
+                <small>Caso a produção tenha sido publicada em algum veículo, anexe aqui</small>
+            </label><br>
+            <textarea id="nome_veiculo" name="nome_veiculo"></textarea><br><br>
+
+            <button type="button" onclick="prevStep(2)">Voltar</button>
+            <button type="button" onclick="nextStep(2)">Avançar</button>
+        </div>
+
+        <!-- PASSO 3 -->
+        <div class="form-step" id="step3">
+            <h2>Participantes</h2>
+            <!--Vinculo-->
+            <label for="vinculo">Qual foi o vínculo informado na submissão da produção aprovada?</label><br>
+            <div id="vinculo">
+            <input type="radio" id="Discente" name="vinculo" value="Discente">
+            <label for="Discente">Discente</label><br>
+
+            <input type="radio" id="Docente" name="vinculo" value="Docente">
+            <label for="Docente">Docente</label><br>
+
+            <input type="radio" id="Colaborador" name="vinculo" value="Colaborador">
+            <label for="Colaborador">Colaborador</label><br><br>
+            </div>
+            <!--coautor?-->
+            <label for="colaborador_coautor">A produção informada possui colaboradores do Cesar como autor?</label><br>
+            <textarea id="colaborador_coautor" name="colaborador_coautor"></textarea><br><br>
+
+            <label for="colaborador_externo">A produção informada possui pessoas externas ao cesar? Se sim, digite nome e email</label><br>
+            <textarea id="colaborador_externo" name="colaborador_externo"></textarea><br><br>
+
+            <label for="docente_coautor">A produção informada possui docente(s) da School como autor? Se sim, informe o nome do professor/pesquisador</label><br>
+            <textarea id="docente_coautor" name="docente_coautor"></textarea><br><br>
+            
+            <label for="aluno_coautor">A produção informada possui alunos(as) da School como autor?</label><br>
+            <textarea id="aluno_coautor" name="aluno_coautor"></textarea><br><br>
+
+            <!--NIVEL DA PRODUÇÃO-->
+            <label for="curso_relacionado">Selecione o curso relacionado:</label>
+            <div>
+                <input type="radio" id="curso_1" name="curso_relacionado" value="Mestrado em Design (Recife)">
+                <label for="curso_1">Mestrado em Design (Recife)</label><br>
+                
+                <input type="radio" id="curso_2" name="curso_relacionado" value="Design de Interação">
+                <label for="curso_2">Design de Interação</label><br><br>
+            </div>
+
+            <button type="button" onclick="prevStep(3)">Voltar</button>
+            <button type="submit">Submeter Produção</button>
+        </div>
+    </form>
+
+    <script>
+        let currentStep = 0;
+        
+        const steps = document.querySelectorAll('.form-step');
+
+        function showStep(stepIndex) {
+            steps.forEach((step, index) => {
+                step.classList.remove('active');
+                if (index === stepIndex) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        function nextStep(stepIndex) {
+            currentStep = stepIndex;
+            showStep(currentStep);
+        }
+
+        function prevStep(stepIndex) {
+            currentStep = stepIndex;
+            showStep(currentStep);
+        }
+
+        // Inicializa o formulário mostrando a primeira etapa
+        showStep(currentStep);
+    </script>
+</body>
+</html>

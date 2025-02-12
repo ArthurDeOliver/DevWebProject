@@ -9,18 +9,16 @@
   <link rel="stylesheet" href="globalCss.css" />
   <link rel="stylesheet" href="mediaQuerysLocalizacao.css" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <script src="localizacao.js" defer></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap"
     rel="stylesheet" />
+    <link rel="stylesheet" href="">
 </head>
 
-<body style="
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  ">
+<body style="display: flex; flex-direction: column; justify-content: space-between;">
   <header class="head_page">
     <div class="img_logo">
       <img src="images/logo_mob.svg" alt="" />
@@ -35,85 +33,102 @@
       </ul>
     </nav>
   </header>
+
   <div class="categories">
-    <img src="images/casa.png" id="img-casa" alt="icone de casa">
-    <a href="#">Próximo a você</a>
-    <a href="#">Praias</a>
-    <a href="#">Pontos Turísticos</a>
-    <a href="#">Reservas Naturais</a>
-    <a href="#">Centros Históricos</a>
-    <a href="#">Parques Temáticos</a>
-    <a href="#">Cachoeiras</a>
-    <input type="search" placeholder="🔍︎" />
+    <img src="images/casa.png" id="img-casa" alt="icone de casa" onclick="filtrarHoteis('hotel')">
+    <a href="#" onclick="filtrarHoteis('litoral')">Litoral</a>
+    <a href="#" onclick="filtrarHoteis('montanhas')">Montanhas</a>
+    <a href="#" onclick="filtrarHoteis('desertos')">Desertos</a>
+    <a href="#" onclick="filtrarHoteis('reservas_naturais')">Reservas Naturais</a>
+    <a href="#" onclick="filtrarHoteis('centros_historicos')">Centros Históricos</a>
+    <a href="#" onclick="filtrarHoteis('florestas_tropicais')">Florestas Tropicais</a>
+    <a href="#" onclick="filtrarHoteis('cachoeiras')">Cachoeiras</a>
   </div>
+
   <main>
-    <section class="hotel-lista">
-      <div class="hotel">
-        <img src="images/foto1.jpg" alt="Imagem de hotel">
+    <section class="hotel-lista" data-categoria="todos">
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.5346156198138!2d-35.00184053046236!3d-8.485915273049256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa924946237369%3A0x18c2d56439c52faa!2zQXJtYcOnw6NvIFJlc29ydA!5e0!3m2!1sen!2sbr!4v1739323725024!5m2!1sen!2sbr">
+        <img src="images/armacao.jpg" alt="Imagem de hotel">
         <h3>Armação Resort - Porto de Galinhas</h3>
         <p>Dois quartos, uma varanda e sala de estar</p>
         <span>⭐⭐⭐⭐⭐ 4.9 </span>
       </div>
-      <div class="hotel">
-        <img src="images/foto2.jpeg" alt="Imagem de hotel">
-        <h3>Hotel Tropical - Porto de Galinhas</h3>
+      <div class="hotel" data-categoria="centros_historicos" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4131081687487!2d-38.53201692534443!3d-13.009344360568486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x716030036ae0941%3A0x9658764acfa6b078!2sPousada%20Flores%20Do%20Farol!5e0!3m2!1sen!2sbr!4v1739325597595!5m2!1sen!2sbr">
+        <img src="images/floresdofarol.jpg" alt="Imagem de hotel">
+        <h3>Pousada Flores do Farol - Bahia</h3>
+        <p>Dois quartos, uma varanda e sala de estar</p>
+        <span>⭐⭐⭐⭐⭐ 4.9 </span>
+      </div>
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.172547106232!2d-35.004309324104526!3d-8.482597664022157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa924dcc46c91f%3A0x14e0b9721dd11a52!2sKembali%20Hotel!5e0!3m2!1sen!2sbr!4v1739323155646!5m2!1sen!2sbr">
+        <img src="images/kembali.jpg" alt="Imagem de hotel">
+        <h3>Kembali Hotel - Porto de Galinhas</h3>
         <p>Com piscina e vista paradisíaca.</p>
         <span>⭐⭐⭐⭐⭐ 4.8</span>
       </div>
-      <div class="hotel">
-        <img src="images/foto3.jpeg" alt="Imagem de hotel">
+      <div class="hotel"  data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.1282475619!2d-35.00460982543468!3d-8.48690928586896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa9331b1393edd%3A0xdae65012a9db93d6!2sPousada%20Amada%20Terra!5e0!3m2!1sen!2sbr!4v1739322769424!5m2!1sen!2sbr">
+        <img src="images/amadaterra.jpg" alt="Imagem de hotel">
         <h3>Pousada Amada Terra - Porto de Galinhas</h3>
         <p>Quarto de frente para o mar.</p>
         <span>⭐⭐⭐⭐⭐ 5.0</span>
       </div>
-      <div class="hotel">
-        <img src="images/foto4.jpg" alt="Imagem de hotel">
-        <h3>Pousada Sonar - Porto de Galinhas</h3>
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.1754404173835!2d-35.002840025434864!3d-8.482315985809946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa924dd7c137b1%3A0x90c1b2dc80c9f886!2sPousada%20Girassol!5e0!3m2!1sen!2sbr!4v1739323829708!5m2!1sen!2sbr">
+        <img src="images/girassol.jpg" alt="Imagem de hotel">
+        <h3>Pousada Girassol - Porto de Galinhas</h3>
         <p>Dois quartos, varanda com vista de frente para o mar e café da manhã incluso.</p>
         <span>⭐⭐⭐⭐⭐ 4.7</span>
       </div>
-      <div class="hotel">
-        <img src="images/foto5.jpeg" alt="Imagem de hotel">
-        <h3>Pousada Uba-Rio - Porto de Galinhas</h3>
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.3176523376533!2d-34.99594872543487!3d-8.468459485632083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa9301ae04dfc7%3A0x5885ac204b5cf98a!2sHotel%20Village%20Porto%20de%20Galinhas!5e0!3m2!1sen!2sbr!4v1739324004723!5m2!1sen!2sbr">
+        <img src="images/village.jpg" alt="Imagem de hotel">
+        <h3>Hotel Village - Porto de Galinhas</h3>
         <p>Café da manhã incluso</p>
         <span>⭐⭐⭐⭐⭐ 4.8</span>
       </div>
-      <div class="hotel">
-        <img src="images/foto6.jpg" alt="Imagem de hotel">
-        <h3>Praieiras - Porto de Galinhas</h3>
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.6543563137498!2d-34.985801224109!3d-8.43556246353696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aaeccd4ed3ad69%3A0x267605f86a114960!2sSummerville%20All%20Inclusive%20Resort!5e0!3m2!1sen!2sbr!4v1739324179908!5m2!1sen!2sbr">
+        <img src="images/summerville.jpg" alt="Imagem de hotel">
+        <h3>SummerVille - Porto de Galinhas</h3>
         <p>Um lugar para você se divertir e relaxar com a família! Dois quartos, garagem e sauna individual.</p>
         <span>⭐⭐⭐⭐⭐ 4.9</span>
       </div>
-      <div class="hotel">
-        <img src="images/foto7.jpg" alt="Imagem de hotel">
-        <h3>Pousada Encanto do Mar - Porto de Galinhas</h3>
+      <div class="hotel" data-categoria="desertos" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.8753860751444!2d22.580862875444087!3d-33.9957344256442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dd61dbaa0e7081f%3A0xb740a62a1d2eec58!2sBeach%20Villa%20Wilderness!5e0!3m2!1sen!2sbr!4v1739325293565!5m2!1sen!2sbr">
+        <img src="images/wilderness.jpg" alt="Imagem de hotel">
+        <h3>Beach Villa Wilderness - África do Sul</h3>
+        <p>Um lugar para você se divertir e relaxar com a família! Dois quartos, garagem e sauna individual.</p>
+        <span>⭐⭐⭐⭐⭐ 4.9</span>
+      </div>
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.9059418105976!2d-35.00519443208356!3d-8.508513288502776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa9229193cce95%3A0x94e6a36fe7bde1b9!2sChalets%20Four%20Seasons!5e0!3m2!1sen!2sbr!4v1739324552158!5m2!1sen!2sbr">
+        <img src="images/quatroest.jpg" alt="Imagem de hotel" >
+        <h3>Pousada Quatro Estações - Porto de Galinhas</h3>
         <p>Dois quartos, área de lazer com campo de futebol e parquinho.</p>
         <span>⭐⭐⭐⭐⭐ 4.7</span>
       </div>
-      <div class="hotel">
-        <img src="images/foto8.jpg" alt="Imagem de hotel">
+      <div class="hotel" data-categoria="montanhas" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2506.173990114154!2d-115.35530302389928!3d51.08679644134329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5370c5bfeb7f6009%3A0xa1e3d6e2667e256d!2sThe%20Malcolm%20Hotel!5e0!3m2!1sen!2sbr!4v1739325124781!5m2!1sen!2sbr">
+        <img src="images/malconhotel.jpg" alt="Imagem de hotel" >
+        <h3>The Malcon Hotel - Canada</h3>
+        <p>Dois quartos, área de lazer com campo de futebol e parquinho.</p>
+        <span>⭐⭐⭐⭐⭐ 4.7</span>
+      </div>
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.1825564620176!2d-35.004243424104594!3d-8.481623164012042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa924deb985433%3A0x6c60d2df00509816!2sHotel%20Solar%20Porto%20de%20Galinhas!5e0!3m2!1sen!2sbr!4v1739324462513!5m2!1sen!2sbr">
+        <img src="images/hotelsolar.jpg" alt="Imagem de hotel">
         <h3>Hotel Solar - Porto de Galinhas</h3>
         <p>O lugar ideal para quem quer conforto e descanso.</p>
         <span>⭐⭐⭐⭐⭐ 5.0</span>
       </div>
-      <div class="hotel">
-        <img src="images/foto9.jpg" alt="Imagem de hotel">
+      <div class="hotel" data-categoria="litoral" data-localizacao="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.011792239921!2d-35.00727242543449!3d-8.498233386014562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa93a399946acf%3A0x1ec65e29abf3393f!2sFlat%20Sol%20e%20Mar%20-%20Porto%20Atlantis!5e0!3m2!1sen!2sbr!4v1739323391153!5m2!1sen!2sbr">
+        <img src="images/flatsolemar.jpg" alt="Imagem de hotel">
         <h3>Flat Sol e Mar - Porto de Galinhas</h3>
         <p>Café da manhã incluso</p>
         <span>⭐⭐⭐⭐⭐ 4.7</span>
       </div>
     </section>
     <div class="map-container">
-      <iframe
+      <iframe id="locationIframe"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14335.33006034268!2d-35.01011927885302!3d-8.499079853924917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa92264444c639%3A0x22d2d29248113c5e!2sPorto%20de%20Galinhas%20-%20N.%20S%C3%A3o%20do%20%C3%93%2C%20Ipojuca%20-%20State%20of%20Pernambuco!5e0!3m2!1sen!2sbr!4v1732649166527!5m2!1sen!2sbr"></iframe>
     </div>
   </main>
   <footer>
     <p class="fot_p">
-      Desenvolvido por Arthur de Oliveira, Dhiego Fernando, Luiz, Maria
-      Eduarda
+      Desenvolvido por Arthur de Oliveira, Dhiego Fernando, Luiz, Maria Eduarda
     </p>
   </footer>
 </body>
-
 </html>
