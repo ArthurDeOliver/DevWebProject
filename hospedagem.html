@@ -164,6 +164,20 @@
       // Calcular o preço inicial ao carregar a página
       calculatePrice();
 
+
+      // Verificar se veio de uma promoção e atualizar o preço e estado correspondente
+         const precoPromocional = localStorage.getItem('precoPromocional');
+         const estadoSelecionado = localStorage.getItem('estadoSelecionado');
+
+         if (precoPromocional) {
+         document.getElementById('priceValue').textContent = `R$ ${Number(precoPromocional).toFixed(2)}`;
+         localStorage.removeItem('precoPromocional');
+         }
+
+         if (estadoSelecionado) {
+         document.getElementById('franquia').value = estadoSelecionado;
+         localStorage.removeItem('estadoSelecionado');
+         }
       // Trocar imagem ao passar o mouse nas fotos
       const mainImage = document.getElementById("mainImage");
       const thumbnails = document.querySelectorAll(".pictureFooter");
