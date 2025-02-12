@@ -88,11 +88,8 @@
 @media screen and (min-width: 1200px) {
   .head_page {
     width: 100%;
-    position: fixed;
-    top: 0;
   }
   .sec1_first {
-    margin-top: 75px;
     background-repeat: no-repeat;
     background-size: cover;
     height: 55em;
@@ -123,9 +120,13 @@
     width: calc(50% - 5em);
   }
 
+  .img_hotel {
+    width: 1800px;
+  }
+
   .carrossel img {
     width: 20vw;
-    /* height: 30em; */
+    height: 100%;
   }
 
   .cards p {
