@@ -21,6 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    setInterval(showNextImage, 1000);
+    setInterval(showNextImage, 3000);
   });
 });
