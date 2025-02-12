@@ -80,11 +80,11 @@
 
   .hospedagemFotos {
     max-width: 100%;
-    flex-direction: row-reverse;
+    flex-direction: column;
   }
 
   .picutreWrapper {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .headerHospedagem {
@@ -95,7 +95,7 @@
 
 @media screen and (min-width: 900px) {
   .hospedagemFotos {
-    width: 90%;
+    width: 60%;
   }
 
   .formsHospedagem {

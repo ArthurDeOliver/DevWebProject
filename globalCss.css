@@ -172,6 +172,36 @@ h2 {
   fill: #612674;
 }
 
+.priceDisplay {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 12px; /* Bordas arredondadas */
+  border: 1px solid #e0e0e0; /* Borda sutil */
+  width: 100%; /* Largura máxima */
+  margin: 0 auto; /* Centralizar */
+}
+
+.priceLabel {
+  display: block;
+  font-size: 1.5rem;
+  color: #666; /* Cor cinza para o texto secundário */
+  margin-bottom: 0.5rem;
+}
+
+.priceValue {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color); /* Cor azul para o preço */
+  margin-bottom: 0.5rem;
+}
+
+.priceDescription {
+  display: block;
+  font-size: 1.5rem;
+  color: #666; /* Cor cinza para o texto secundário */
+}
+
 /* cards hotel */
 
 .sec2 {
@@ -183,23 +213,23 @@ h2 {
   justify-content: center;
   gap: 4.5rem;
 }
-.img_hotel{
-    overflow: hidden;
-    width:100%;
+.img_hotel {
+  overflow: hidden;
+  width: 100%;
 }
 .carrossel img {
   object-fit: contain;
   width: 100%;
 }
-.carrossel{
-    display: flex;
-    width:100%;
-    transition: transform 1s ease;
+.carrossel {
+  display: flex;
+  width: 100%;
+  transition: transform 1s ease;
 }
 .slide {
-    min-width: 100%;
-    height: auto; 
-    object-fit: cover; 
+  min-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 .cards_hotel {
   display: flex;
@@ -237,22 +267,6 @@ footer a {
   text-decoration: none;
 }
 
-.linke {
-  color: #0077b5;
-}
-
-.linke:hover {
-  background-color: #0077b5;
-}
-
-.git {
-  color: #2dba4e;
-}
-
-.git:hover {
-  background-color: #2dba4e;
-}
-
 footer a:hover {
   border-radius: 0.2rem;
   background-color: whitesmoke;
@@ -266,31 +280,32 @@ footer a:hover {
 }
 
 .hospedagemFotos {
-  padding: 1.6rem;
-  /* max-width: 70%; */
+  /* padding: 1.6rem; */
+  max-width: 100%;
   display: flex;
+  flex-direction: column;
   gap: 4px;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 .pictureHotel {
   padding: 0.5rem;
-  height: 50rem;
-  max-width: 75rem;
+  height: 40rem;
+  width: 90%;
+  object-fit: cover;
 }
 
 .pictureHotel img {
   object-fit: cover;
   border-radius: 0.5rem;
-  max-width: 100%;
+  width: 100%;
   height: 100%;
 }
 
 .picutreWrapper {
   padding: 1rem 0.5rem;
-  max-width: unset;
+  max-width: 100%;
   max-height: unset;
   display: flex;
   gap: 1rem;
@@ -319,21 +334,33 @@ input {
   font-family: "Montserrat", sans-serif;
   max-width: 100%;
   padding: 0.75rem 1rem;
-  font-size: 1.6rem;
-  border: 0.2rem solid #ddd;
+  font-size: 18px; /* Tamanho da fonte ajustado */
+  border: 0.15rem solid #ddd; /* Borda mais fina */
   border-radius: 0.8rem;
-  background-color: #f8f8f8;
+  background-color: #ffffff; /* Fundo branco */
   color: #333;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 input:focus {
-  border-color: var(--primary-color);
+  border-color: var(--primary-color); /* Cor primária ao focar */
+  box-shadow: 0 0 0 3px rgba(97, 38, 116, 0.2); /* Sombra externa ao focar */
 }
 
 input::placeholder {
   color: #aaa;
+  font-style: italic; /* Placeholder em itálico */
+}
+
+/* Estilo para inputs inválidos (opcional) */
+input:invalid {
+  border-color: #ff6b6b; /* Vermelho para inputs inválidos */
+}
+
+input:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2); /* Sombra vermelha ao focar */
 }
 
 .name {
@@ -363,17 +390,32 @@ select {
   font-family: "Montserrat", sans-serif;
   max-width: 100%;
   padding: 0.75rem 1rem;
-  font-size: 1.6rem;
-  border: 0.2rem solid #ddd;
+  font-size: 18px; /* Tamanho da fonte ajustado para 18px */
+  border: 0.15rem solid #ddd; /* Borda mais fina */
   border-radius: 0.8rem;
-  background-color: #f8f8f8;
+  background-color: #ffffff; /* Fundo branco */
   color: #333;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 select:focus {
-  border-color: var(--primary-color);
+  border-color: var(--primary-color); /* Cor primária ao focar */
+  box-shadow: 0 0 0 3px rgba(97, 38, 116, 0.2); /* Sombra externa ao focar */
+}
+
+/* Estilo para o hover (opcional) */
+select:hover {
+  border-color: var(--primary-hover); /* Cor secundária ao passar o mouse */
+}
+
+/* Estilo para o ícone personalizado no Firefox */
+@-moz-document url-prefix() {
+  select {
+    background-image: none; /* Remove o ícone personalizado no Firefox */
+    padding-right: 0.75rem; /* Ajusta o padding */
+  }
 }
 
 option {

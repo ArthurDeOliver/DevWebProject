@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Range Hotel</title>
-
     <link rel="stylesheet" href="globalCss.css" />
     <link rel="stylesheet" href="mediaQuerysHospedagem.css" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,19 +14,11 @@
       rel="stylesheet"
     />
   </head>
-
-  <body
-    style="
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    "
-  >
+  <body>
     <header class="head_page">
       <div class="img_logo">
         <img src="images/logo_mob.svg" alt="logo" />
       </div>
-
       <nav class="nav_list">
         <ul>
           <li><a href="home.html">Home</a></li>
@@ -49,17 +39,42 @@
     <main class="mainHospedagem">
       <section class="hospedagemFotos">
         <div class="pictureHotel">
-          <img src="images/hotel1.avif" alt="hotel carrossel imagens" />
+          <img
+            id="mainImage"
+            src="images/hotel1.avif"
+            alt="hotel carrossel imagens"
+          />
         </div>
         <div class="picutreWrapper">
-          <img class="pictureFooter" src="images/hotel2.avif" alt="hotel carrossel imagens" />
-          <img class="pictureFooter" src="images/hotel3.avif" alt="hotel carrossel imagens" />
-          <img class="pictureFooter" src="images/hotel4.avif" alt="hotel carrossel imagens" />
-          <img class="pictureFooter" src="images/hotel5.avif" alt="hotel carrossel imagens" />
+          <img
+            class="pictureFooter"
+            src="images/hotel2.avif"
+            alt="hotel carrossel imagens"
+          />
+          <img
+            class="pictureFooter"
+            src="images/hotel3.avif"
+            alt="hotel carrossel imagens"
+          />
+          <img
+            class="pictureFooter"
+            src="images/hotel4.avif"
+            alt="hotel carrossel imagens"
+          />
+          <img
+            class="pictureFooter"
+            src="images/hotel5.avif"
+            alt="hotel carrossel imagens"
+          />
         </div>
       </section>
 
-      <form class="formsHospedagem" action="get">
+      <form class="formsHospedagem" id="hospedagemForm">
+        <div class="priceDisplay" id="priceDisplay">
+          <span class="priceLabel">A partir de</span>
+          <span class="priceValue" id="priceValue">R$ 0,00</span>
+          <span class="priceDescription">por noite</span>
+        </div>
         <div class="formDiv1">
           <div class="name">
             <label for="name">Nome</label>
@@ -67,6 +82,7 @@
               placeholder="Digite seu nome e sobrenome"
               type="text"
               id="name"
+              required
             />
           </div>
           <div class="name">
@@ -76,37 +92,40 @@
               maxlength="11"
               type="text"
               id="cpf"
+              required
             />
           </div>
         </div>
         <div class="formDiv1">
           <div class="name">
-            <label for="name">Endereço</label>
+            <label for="endereco">Endereço</label>
             <input
               placeholder="ex: Estado, Cidade, Bairro, Rua e Número"
               type="text"
-              id="name"
+              id="endereco"
+              required
             />
           </div>
           <div class="name">
             <label for="franquia">Franquia</label>
-            <select name="franquia" id="franquia">
+            <select name="franquia" id="franquia" required>
               <option value="Pernambuco">Pernambuco</option>
-              <option value="Pernambuco">Ceará</option>
-              <option value="Pernambuco">Paraíba</option>
-              <option value="Pernambuco">Rio Grande do Norte</option>
+              <option value="Ceará">Ceará</option>
+              <option value="Paraíba">Paraíba</option>
+              <option value="Rio Grande do Norte">Rio Grande do Norte</option>
             </select>
           </div>
           <div class="name">
             <label for="qnt">Quantidade de quartos</label>
-            <select name="qnt" id="qnt">
+            <select name="qnt" id="qnt" required>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
           </div>
         </div>
-        <button class="hospedagem">Hospedar</button>
+
+        <button type="submit" class="hospedagem">Hospedar</button>
       </form>
     </main>
 
@@ -116,5 +135,134 @@
         Eduarda
       </p>
     </footer>
+
+    <script>
+      // Preços base por franquia
+      const prices = {
+        Pernambuco: 200,
+        Ceará: 180,
+        Paraíba: 160,
+        "Rio Grande do Norte": 150,
+      };
+
+      // Função para calcular e atualizar o preço
+      function calculatePrice() {
+        const franquia = document.getElementById("franquia").value;
+        const qntQuartos = parseInt(document.getElementById("qnt").value);
+        const price = prices[franquia] * qntQuartos;
+        document.getElementById("priceValue").textContent = `R$ ${price.toFixed(
+          2
+        )}`;
+      }
+
+      // Atualizar preço ao mudar franquia ou quantidade de quartos
+      document
+        .getElementById("franquia")
+        .addEventListener("change", calculatePrice);
+      document.getElementById("qnt").addEventListener("change", calculatePrice);
+
+      // Calcular o preço inicial ao carregar a página
+      calculatePrice();
+
+      // Trocar imagem ao passar o mouse nas fotos
+      const mainImage = document.getElementById("mainImage");
+      const thumbnails = document.querySelectorAll(".pictureFooter");
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener("mouseover", () => {
+          mainImage.src = thumbnail.src;
+        });
+      });
+
+      // Gerar PDF ao clicar em "Hospedar"
+      document
+        .getElementById("hospedagemForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Coletar dados do formulário
+          const name = document.getElementById("name").value;
+          const cpf = document.getElementById("cpf").value;
+          const endereco = document.getElementById("endereco").value;
+          const franquia = document.getElementById("franquia").value;
+          const qntQuartos = document.getElementById("qnt").value;
+          const price = document.getElementById("priceValue").textContent;
+
+          // Data da reserva
+          const dataReserva = new Date().toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          });
+
+          // Criar o PDF
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+
+          // Cores principais
+          const primaryColor = "#612674"; // Roxo principal
+          const primaryHover = "#765481"; // Roxo mais claro
+
+          // Adicionar logo e título
+          doc.setFontSize(18);
+          doc.setTextColor(primaryColor); // Roxo principal
+          doc.setFont("helvetica", "bold");
+          doc.text("Range Hotels - Comprovante de Reserva", 10, 20);
+
+          // Adicionar linha divisória
+          doc.setDrawColor(primaryColor); // Roxo principal
+          doc.setLineWidth(0.5);
+          doc.line(10, 25, 200, 25);
+
+          // Informações da reserva
+          doc.setFontSize(12);
+          doc.setTextColor(0, 0, 0); // Preto
+          doc.setFont("helvetica", "normal");
+          doc.text(`Data da Reserva: ${dataReserva}`, 10, 35);
+
+          // Tabela de informações
+          const columns = ["Campo", "Valor"];
+          const rows = [
+            ["Nome", name],
+            ["CPF", cpf],
+            ["Endereço", endereco],
+            ["Franquia", franquia],
+            ["Quantidade de Quartos", qntQuartos],
+            ["Preço Total", price],
+          ];
+
+          doc.autoTable({
+            startY: 40,
+            head: [columns],
+            body: rows,
+            theme: "striped", // Estilo da tabela
+            headStyles: {
+              fillColor: primaryColor, // Roxo principal
+              textColor: [255, 255, 255], // Texto branco
+              fontStyle: "bold", // Fonte em negrito
+            },
+            alternateRowStyles: { fillColor: [245, 245, 245] }, // Linhas alternadas cinza claro
+            styles: {
+              fontSize: 10, // Tamanho da fonte
+              cellPadding: 3, // Espaçamento interno das células
+              textColor: [0, 0, 0], // Texto preto
+            },
+          });
+
+          // Mensagem final
+          doc.setFontSize(12);
+          doc.setTextColor(primaryColor); // Roxo principal
+          doc.setFont("helvetica", "bold");
+          doc.text(
+            "Obrigado por escolher Range Hotels!",
+            10,
+            doc.autoTable.previous.finalY + 10
+          );
+
+          // Salvar o PDF
+          doc.save("comprovante_reserva.pdf");
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.24/jspdf.plugin.autotable.min.js"></script>
   </body>
 </html>
