@@ -350,13 +350,8 @@ input:focus {
 }
 
 input::placeholder {
+  font-size: 17px;
   color: #aaa;
-  font-style: italic; /* Placeholder em itálico */
-}
-
-/* Estilo para inputs inválidos (opcional) */
-input:invalid {
-  border-color: #ff6b6b; /* Vermelho para inputs inválidos */
 }
 
 input:invalid:focus {
