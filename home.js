@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+  //Função será executada para cada carrossel da tela
   document.querySelectorAll(".carrossel").forEach((carrossel) => {
     let currentIndex = 0;
+    //Retorna as imagens
     const images = carrossel.querySelectorAll(".slide");
     const totalImages = images.length;
-
+    //Passa para próxima imagem
     function showNextImage() {
       currentIndex++;
-
+      //Caso o index esteja na última imagem reinicia o carrossel
       if (currentIndex >= totalImages) {
         currentIndex = 0;
         carrossel.style.transition = "none";
@@ -20,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         carrossel.style.transform = `translateX(${newTransformValue})`;
       }
     }
-
+    //Intervalo de tempo para troca das imagens (3 segundos);
     setInterval(showNextImage, 3000);
   });
 });
