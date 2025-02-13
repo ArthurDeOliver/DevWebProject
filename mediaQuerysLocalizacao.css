@@ -1,5 +1,5 @@
 @media screen and (min-width: 780px) {
-  /* header */
+  /* Cabeçalho */
   .head_page {
     gap: 10em;
     align-items: center;
@@ -7,6 +7,7 @@
     flex-direction: row;
   }
 
+  /* Lista de navegação */
   ul {
     margin-right: 1em;
     flex-direction: row;
@@ -39,6 +40,8 @@
     width: 100%;
   }
 }
+
+/* Estilo para a seção de categorias */
 .categories {
   margin-top: 20px;
   display: flex; 
@@ -68,6 +71,7 @@
   margin-left: 30px;
 }
 
+/* Estilo para os cards de hotéis */
 .hotel {
   width: 300px;
   height: 300px;
@@ -114,6 +118,7 @@ main {
   justify-content: space-between; 
 }
 
+/* Estilo para a lista de hotéis */
 .hotel-lista {
   flex: 2; 
   display: flex;
